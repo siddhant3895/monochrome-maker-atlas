@@ -14,13 +14,18 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-hairline bg-background/90 backdrop-blur-sm">
       <div className="container-page flex h-14 items-center justify-between">
         <Link to="/" className="font-mono text-sm tracking-tight" onClick={() => setOpen(false)}>
-          <span className="font-semibold">{site.wordmark}</span> <span className="text-muted-foreground">{site.name}</span>
+          <span className="font-semibold">{site.wordmark}</span>{" "}
+          <span className="text-muted-foreground">{site.name}</span>
         </Link>
         <nav aria-label="Primary" className="hidden md:block">
           <ul className="flex gap-6 text-sm">
             {nav.map((n) => (
               <li key={n.to}>
-                <Link to={n.to} className="text-muted-foreground transition-colors hover:text-foreground" activeProps={{ className: "text-foreground" }}>
+                <Link
+                  to={n.to}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  activeProps={{ className: "text-foreground" }}
+                >
                   {n.label}
                 </Link>
               </li>
@@ -38,11 +43,19 @@ export function Header() {
         </button>
       </div>
       {open && (
-        <nav id="mobile-nav" aria-label="Mobile" className="md:hidden border-t border-hairline bg-background">
+        <nav
+          id="mobile-nav"
+          aria-label="Mobile"
+          className="md:hidden border-t border-hairline bg-background"
+        >
           <ul className="container-page py-4">
             {nav.map((n, i) => (
               <li key={n.to} className="border-b border-hairline last:border-0">
-                <Link to={n.to} onClick={() => setOpen(false)} className="flex items-baseline gap-4 py-3 text-2xl tracking-tight">
+                <Link
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className="flex items-baseline gap-4 py-3 text-2xl tracking-tight"
+                >
                   <span className="label-mono">{String(i + 1).padStart(2, "0")}</span>
                   {n.label}
                 </Link>
@@ -61,19 +74,37 @@ export function Footer() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-6">
           <p className="display text-4xl md:text-6xl">Let's build something careful.</p>
-          <Link to="/contact" className="mt-6 inline-flex items-center gap-2 text-sm link-underline">
+          <Link
+            to="/contact"
+            className="mt-6 inline-flex items-center gap-2 text-sm link-underline"
+          >
             Get in touch <ArrowUpRight size={14} />
           </Link>
         </div>
         <ul className="grid grid-cols-2 gap-2 text-sm md:col-span-4 md:col-start-9">
           {nav.map((n) => (
-            <li key={n.to}><Link to={n.to} className="text-muted-foreground hover:text-foreground">{n.label}</Link></li>
+            <li key={n.to}>
+              <Link to={n.to} className="text-muted-foreground hover:text-foreground">
+                {n.label}
+              </Link>
+            </li>
           ))}
-          <li><a href={site.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground">GitHub ↗</a></li>
+          <li>
+            <a
+              href={site.github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              GitHub ↗
+            </a>
+          </li>
         </ul>
       </div>
       <div className="container-page flex justify-between border-t border-hairline py-5 label-mono">
-        <span>{site.wordmark} {site.name}</span>
+        <span>
+          {site.wordmark} {site.name}
+        </span>
         <span>Draft portfolio · {new Date().getFullYear()}</span>
       </div>
     </footer>
@@ -89,7 +120,17 @@ export function SectionLabel({ n, children }: { n: string; children: ReactNode }
   );
 }
 
-export function PageHeader({ n, label, title, intro }: { n: string; label: string; title: ReactNode; intro?: ReactNode }) {
+export function PageHeader({
+  n,
+  label,
+  title,
+  intro,
+}: {
+  n: string;
+  label: string;
+  title: ReactNode;
+  intro?: ReactNode;
+}) {
   return (
     <section className="container-page pt-16 md:pt-24">
       <SectionLabel n={n}>{label}</SectionLabel>
@@ -108,21 +149,42 @@ export function StatusTag({ children }: { children: ReactNode }) {
   );
 }
 
-export function ProjectCard({ p, index, aspect = "aspect-[4/3]", priority }: { p: Project; index: number; aspect?: string; priority?: boolean }) {
+export function ProjectCard({
+  p,
+  index,
+  aspect = "aspect-[4/3]",
+  priority,
+}: {
+  p: Project;
+  index: number;
+  aspect?: string;
+  priority?: boolean;
+}) {
   return (
     <Link to="/work/$slug" params={{ slug: p.slug }} className="group block">
       <div className={`img-zoom ${aspect} border border-hairline bg-muted`}>
-        <img src={p.image} alt={p.imageAlt} loading={priority ? "eager" : "lazy"} className="h-full w-full object-cover" />
+        <img
+          src={p.image}
+          alt={p.imageAlt}
+          loading={priority ? "eager" : "lazy"}
+          className="h-full w-full object-cover"
+        />
       </div>
       <div className="mt-4 flex items-start justify-between gap-4">
         <div>
-          <p className="label-mono">{String(index + 1).padStart(2, "0")} · {p.year}</p>
+          <p className="label-mono">
+            {String(index + 1).padStart(2, "0")} · {p.year}
+          </p>
           <h3 className="mt-1 text-xl tracking-tight">{p.title}</h3>
           <p className="mt-1 max-w-md text-sm text-muted-foreground">{p.summary}</p>
         </div>
         <div className="flex shrink-0 items-center gap-3">
           <StatusTag>{p.status}</StatusTag>
-          <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+          <ArrowUpRight
+            size={18}
+            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden
+          />
         </div>
       </div>
     </Link>
