@@ -8,7 +8,8 @@ import { images } from "./images";
 export const site = {
   name: "Siddhant",
   wordmark: "S /",
-  tagline: "Student developer exploring software, open source, computational research, and visual art.",
+  tagline:
+    "Student developer exploring software, open source, computational research, and visual art.",
   github: "https://github.com/siddhant3895",
   githubHandle: "siddhant3895",
   // Set to a real address to show it on the contact page. Leave null to hide.
@@ -53,7 +54,8 @@ export const projects: Project[] = [
   {
     slug: "widsp",
     title: "WIDSP",
-    summary: "Frontend contributions to a collaborative, open-source infectious-disease surveillance platform.",
+    summary:
+      "Frontend contributions to a collaborative, open-source infectious-disease surveillance platform.",
     year: "2025",
     status: "Collaborative",
     categories: ["Open source", "Web"],
@@ -71,16 +73,22 @@ export const projects: Project[] = [
     stack: ["Frontend web stack — to be confirmed from repository"],
     decisions: [TBA],
     challenges: [TBA],
-    limitations: ["Contribution list is unverified; individual PR links will be added once confirmed."],
+    limitations: [
+      "Contribution list is unverified; individual PR links will be added once confirmed.",
+    ],
     next: ["Link specific pull requests.", "Add before/after screenshots of contributed UI."],
     links: [
-      { label: "Repository", href: "https://github.com/hallofcodes/worldwide-infectious-disease-surveillance-platform" },
+      {
+        label: "Repository",
+        href: "https://github.com/hallofcodes/worldwide-infectious-disease-surveillance-platform",
+      },
     ],
   },
   {
     slug: "tesla-oscillator",
     title: "Tesla Oscillator Study",
-    summary: "A MATLAB computational investigation into mechanical resonance, inspired by Tesla's oscillator.",
+    summary:
+      "A MATLAB computational investigation into mechanical resonance, inspired by Tesla's oscillator.",
     year: "2025",
     status: "Research",
     categories: ["Research"],
@@ -93,7 +101,10 @@ export const projects: Project[] = [
     stack: ["MATLAB"],
     decisions: [TBA],
     challenges: [TBA],
-    limitations: ["Simulation-based; no physical experimental validation claimed.", "Not peer reviewed."],
+    limitations: [
+      "Simulation-based; no physical experimental validation claimed.",
+      "Not peer reviewed.",
+    ],
     next: ["Publish the paper and code publicly.", "Add selected figures from simulations."],
     links: [],
   },
@@ -113,7 +124,10 @@ export const projects: Project[] = [
     stack: ["TypeScript (proposed)", "Python (proposed)"],
     decisions: [TBA],
     challenges: ["Handling health data responsibly — approach to be documented."],
-    limitations: ["Not a medical device; not clinically validated.", "No working build published yet."],
+    limitations: [
+      "Not a medical device; not clinically validated.",
+      "No working build published yet.",
+    ],
     next: ["Prototype the frontend.", "Document data sources and privacy approach."],
     links: [],
   },
@@ -127,7 +141,8 @@ export const projects: Project[] = [
     image: images.code,
     imageAlt: "Laptop with code on screen (placeholder visual)",
     role: "Author.",
-    overview: "A Python project in the security-tooling space. Specific features have not yet been verified for this page and will be listed once documented.",
+    overview:
+      "A Python project in the security-tooling space. Specific features have not yet been verified for this page and will be listed once documented.",
     contribution: [TBA],
     stack: ["Python"],
     decisions: [TBA],
@@ -146,7 +161,8 @@ export const projects: Project[] = [
     image: images.code,
     imageAlt: "Laptop with code on screen (placeholder visual)",
     role: "Author.",
-    overview: "A learning experiment: React frontend talking to a FastAPI backend that proxies a language model. Current deployment status is not claimed.",
+    overview:
+      "A learning experiment: React frontend talking to a FastAPI backend that proxies a language model. Current deployment status is not claimed.",
     contribution: ["Frontend and backend scaffolding."],
     stack: ["React", "Python", "FastAPI"],
     decisions: [TBA],
@@ -167,7 +183,10 @@ export const projects: Project[] = [
     role: "Author of the surrounding experiment code.",
     overview:
       "An experiment that uses Stockfish — an existing open-source engine developed by the Stockfish team. The engine itself is third-party work; my part is the code around it.",
-    contribution: ["Integration / experiment code (details to be added).", "Stockfish engine: not my work."],
+    contribution: [
+      "Integration / experiment code (details to be added).",
+      "Stockfish engine: not my work.",
+    ],
     stack: ["Stockfish (third-party)", "Language to be confirmed"],
     decisions: [TBA],
     challenges: [TBA],
@@ -178,7 +197,8 @@ export const projects: Project[] = [
 ];
 
 export const research = {
-  title: "When Tesla's Oscillator Meets Modern Science: A Computational Investigation into Mechanical Resonance",
+  title:
+    "When Tesla's Oscillator Meets Modern Science: A Computational Investigation into Mechanical Resonance",
   kind: "Computational research · MATLAB",
   status: "Student research — not peer reviewed",
   abstract:
@@ -194,6 +214,10 @@ export const now = {
     "Finishing the write-up of the Tesla oscillator study.",
     "Prototyping PulseAtlas.",
   ],
-  learning: ["Systems and reverse engineering fundamentals", "Numerical methods", "Type-safe frontend architecture"],
+  learning: [
+    "Systems and reverse engineering fundamentals",
+    "Numerical methods",
+    "Type-safe frontend architecture",
+  ],
   making: ["Ink creature illustrations", "Manga-inspired studies"],
 };
