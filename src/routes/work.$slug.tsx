@@ -89,12 +89,12 @@ function ProjectPage() {
         </div>
       </section>
 
-      <section className="container-page mt-24">
+      {nextP && <section className="container-page mt-24">
         <Link to="/work/$slug" params={{ slug: nextP.slug }} className="group flex items-end justify-between border-y border-hairline py-10">
           <div><p className="label-mono">Next project</p><p className="display mt-3 text-4xl md:text-6xl">{nextP.title}</p></div>
           <ArrowUpRight size={36} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </Link>
-      </section>
+      </section>}
     </article>
   );
 }

@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { ProjectCard, SectionLabel, StatusTag } from "@/components/site";
-import { artworks, now, projects, research, site } from "@/content/site";
+import { now, projects, research, site } from "@/content/site";
+import { posts } from "@/content/blog";
+import { ArticleEntry } from "@/components/blog";
 import { images } from "@/content/images";
 import { seo } from "@/lib/seo";
 
@@ -11,7 +13,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const [a, b, c, d] = projects;
+  const projectLayouts = ["md:col-span-7", "md:col-span-5 md:mt-32", "md:col-span-5", "md:col-span-6 md:col-start-7 md:mt-24"];
+  const projectAspects = ["aspect-[4/3]", "aspect-square", "aspect-[4/5]", "aspect-[4/3]"];
   return (
     <>
       {/* Hero */}
@@ -57,10 +60,9 @@ function Home() {
           <SectionLabel n="02">Selected work</SectionLabel>
         </div>
         <div className="mt-10 grid gap-x-8 gap-y-16 md:grid-cols-12">
-          <div className="md:col-span-7"><ProjectCard p={a} index={0} aspect="aspect-[4/3]" /></div>
-          <div className="md:col-span-5 md:mt-32"><ProjectCard p={b} index={1} aspect="aspect-square" /></div>
-          <div className="md:col-span-5"><ProjectCard p={c} index={2} aspect="aspect-[4/5]" /></div>
-          <div className="md:col-span-6 md:col-start-7 md:mt-24"><ProjectCard p={d} index={3} /></div>
+          {projects.slice(0, 4).map((p, i) => (
+            <div key={p.slug} className={projectLayouts[i]}><ProjectCard p={p} index={i} aspect={projectAspects[i] ?? "aspect-[4/3]"} /></div>
+          ))}
         </div>
         <Link to="/work" className="mt-16 flex items-center justify-between border-y border-hairline py-6 text-2xl tracking-tight transition-colors hover:bg-accent md:px-2">
           All projects <ArrowRight />
@@ -98,19 +100,15 @@ function Home() {
         </div>
       </section>
 
-      {/* Visual art */}
+      {/* Blog */}
       <section className="container-page mt-28">
         <div className="flex items-center justify-between">
-          <SectionLabel n="05">Visual lab</SectionLabel>
+          <SectionLabel n="05">Blog</SectionLabel>
+          <Link to="/blog" className="inline-flex items-center gap-2 text-sm link-underline">All articles <ArrowUpRight size={14} /></Link>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
-          {artworks.slice(0, 4).map((art, i) => (
-            <Link key={art.id} to="/visual-lab" className={`img-zoom border border-hairline bg-card ${i === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square"}`}>
-              <img src={art.src} alt={art.alt} loading="lazy" className="h-full w-full object-cover" />
-            </Link>
-          ))}
-        </div>
-        <p className="mt-4 label-mono">Sample placeholders — original ink & manga-inspired work coming soon.</p>
+        <ul className="mt-10 border-t border-hairline">
+          {posts.map((post, i) => <ArticleEntry key={post.slug} post={post} index={i} />)}
+        </ul>
       </section>
 
       {/* Now */}

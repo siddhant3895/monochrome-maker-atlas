@@ -14,8 +14,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as NowRouteImport } from './routes/now'
 import { Route as ResearchRouteImport } from './routes/research'
-import { Route as VisualLabRouteImport } from './routes/visual-lab'
-import { Route as WritingRouteImport } from './routes/writing'
 import { Route as WorkIndexRouteImport } from './routes/work.index'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
 
@@ -44,16 +42,6 @@ const ResearchRoute = ResearchRouteImport.update({
   path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VisualLabRoute = VisualLabRouteImport.update({
-  id: '/visual-lab',
-  path: '/visual-lab',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WritingRoute = WritingRouteImport.update({
-  id: '/writing',
-  path: '/writing',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const WorkIndexRoute = WorkIndexRouteImport.update({
   id: '/work/',
   path: '/work/',
@@ -71,8 +59,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/now': typeof NowRoute
   '/research': typeof ResearchRoute
-  '/visual-lab': typeof VisualLabRoute
-  '/writing': typeof WritingRoute
   '/work/$slug': typeof WorkSlugRoute
   '/work/': typeof WorkIndexRoute
 }
@@ -82,8 +68,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/now': typeof NowRoute
   '/research': typeof ResearchRoute
-  '/visual-lab': typeof VisualLabRoute
-  '/writing': typeof WritingRoute
   '/work/$slug': typeof WorkSlugRoute
   '/work': typeof WorkIndexRoute
 }
@@ -94,8 +78,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/now': typeof NowRoute
   '/research': typeof ResearchRoute
-  '/visual-lab': typeof VisualLabRoute
-  '/writing': typeof WritingRoute
   '/work/$slug': typeof WorkSlugRoute
   '/work/': typeof WorkIndexRoute
 }
@@ -107,21 +89,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/now'
     | '/research'
-    | '/visual-lab'
-    | '/writing'
     | '/work/$slug'
     | '/work/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/now'
-    | '/research'
-    | '/visual-lab'
-    | '/writing'
-    | '/work/$slug'
-    | '/work'
+    '/' | '/about' | '/contact' | '/now' | '/research' | '/work/$slug' | '/work'
   id:
     | '__root__'
     | '/'
@@ -129,8 +101,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/now'
     | '/research'
-    | '/visual-lab'
-    | '/writing'
     | '/work/$slug'
     | '/work/'
   fileRoutesById: FileRoutesById
@@ -141,8 +111,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   NowRoute: typeof NowRoute
   ResearchRoute: typeof ResearchRoute
-  VisualLabRoute: typeof VisualLabRoute
-  WritingRoute: typeof WritingRoute
   WorkSlugRoute: typeof WorkSlugRoute
   WorkIndexRoute: typeof WorkIndexRoute
 }
@@ -184,20 +152,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/visual-lab': {
-      id: '/visual-lab'
-      path: '/visual-lab'
-      fullPath: '/visual-lab'
-      preLoaderRoute: typeof VisualLabRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/writing': {
-      id: '/writing'
-      path: '/writing'
-      fullPath: '/writing'
-      preLoaderRoute: typeof WritingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/work/': {
       id: '/work/'
       path: '/work'
@@ -221,8 +175,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   NowRoute: NowRoute,
   ResearchRoute: ResearchRoute,
-  VisualLabRoute: VisualLabRoute,
-  WritingRoute: WritingRoute,
   WorkSlugRoute: WorkSlugRoute,
   WorkIndexRoute: WorkIndexRoute,
 }

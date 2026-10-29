@@ -5,7 +5,6 @@ import oscillator from "@/assets/work-oscillator.jpg";
 import code from "@/assets/work-code.jpg";
 import chess from "@/assets/work-chess.jpg";
 import pulse from "@/assets/work-pulse.jpg";
-import ink1 from "@/assets/ink-sample.jpg";
 import ink2 from "@/assets/ink-sample-2.jpg";
 
-export const images = { hero, map, oscillator, code, chess, pulse, ink1, ink2 };
+export const images = { hero, map, oscillator, code, chess, pulse, ink2 };

@@ -18,8 +18,7 @@ export const site = {
 export const nav = [
   { to: "/work", label: "Work" },
   { to: "/research", label: "Research" },
-  { to: "/visual-lab", label: "Visual Lab" },
-  { to: "/writing", label: "Writing" },
+  { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
   { to: "/now", label: "Now" },
   { to: "/contact", label: "Contact" },
@@ -187,26 +186,6 @@ export const research = {
   paperUrl: null as string | null,
   methods: ["MATLAB simulation", "Literature review", "Mechanical resonance modelling"],
 };
-
-export type Artwork = { id: string; title: string; medium: string; src: string; alt: string; placeholder: boolean };
-
-export const artworks: Artwork[] = [
-  { id: "a1", title: "Sample — Creature study", medium: "Placeholder · ink style", src: images.ink2, alt: "Sample ink creature illustration placeholder", placeholder: true },
-  { id: "a2", title: "Sample — Flow", medium: "Placeholder · ink texture", src: images.ink1, alt: "Sample abstract ink placeholder", placeholder: true },
-  { id: "a3", title: "Sample — Resonance", medium: "Placeholder · photo", src: images.hero, alt: "Sample long-exposure pendulum placeholder", placeholder: true },
-  { id: "a4", title: "Sample — Contours", medium: "Placeholder · line", src: images.pulse, alt: "Sample contour line placeholder", placeholder: true },
-  { id: "a5", title: "Sample — Mechanism", medium: "Placeholder · photo", src: images.oscillator, alt: "Sample mechanism placeholder", placeholder: true },
-  { id: "a6", title: "Sample — Atlas", medium: "Placeholder · dots", src: images.map, alt: "Sample dotted map placeholder", placeholder: true },
-];
-
-export type Note = { title: string; topic: string; status: "Draft" | "Coming soon"; blurb: string };
-
-export const notes: Note[] = [
-  { title: "Modelling resonance in MATLAB: notes from a first study", topic: "Research", status: "Draft", blurb: "Working notes on setting up the oscillator simulations." },
-  { title: "Contributing to an open-source map UI", topic: "Open source", status: "Coming soon", blurb: "What I learned reading and contributing to a collaborative codebase." },
-  { title: "Where my code ends and Stockfish begins", topic: "Engineering", status: "Coming soon", blurb: "On crediting third-party engines honestly." },
-  { title: "Ink, linework and debugging", topic: "Art", status: "Draft", blurb: "Parallels between illustration practice and reading code." },
-];
 
 export const now = {
   updated: "October 2026",
