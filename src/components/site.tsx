@@ -13,10 +13,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-background/90 backdrop-blur-sm">
       <div className="container-page flex h-14 items-center justify-between">
-        <Link to="/" className="font-mono text-sm tracking-tight" onClick={() => setOpen(false)}>
-          <span className="font-semibold">{site.wordmark}</span>{" "}
-          <span className="text-muted-foreground">{site.name}</span>
+        <Link
+          to="/"
+          className="group inline-flex items-center gap-2 rounded-full border border-hairline px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-wider text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+          onClick={() => setOpen(false)}
+        >
+          <Home size={13} aria-hidden />
+          Home
         </Link>
+
         <nav aria-label="Primary" className="hidden md:block">
           <ul className="flex gap-6 text-sm">
             {nav.map((n) => (
