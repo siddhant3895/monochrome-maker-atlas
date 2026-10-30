@@ -6,8 +6,8 @@
 import { images } from "./images";
 
 export const site = {
-  name: "Siddhant",
-  wordmark: "S /",
+  name: "",
+  wordmark: "",
   tagline:
     "Developer exploring software, open source, computational research, and visual art.",
   github: "https://github.com/siddhant3895",
