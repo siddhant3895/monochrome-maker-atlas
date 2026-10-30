@@ -31,16 +31,17 @@ function Research() {
         </h1>
       </section>
       <section className="container-page mt-14">
-        <figure className="img-zoom aspect-[21/9] border border-hairline bg-ink">
+        <figure className="img-zoom aspect-[21/9] border border-hairline bg-paper">
           <img
-            src={images.hero}
-            alt="Pendulum light trails (placeholder image, not a simulation output)"
-            className="h-full w-full object-cover"
+            src={images.resonanceCurve}
+            alt="Resonance curve from the study: amplitude in metres against driving frequency in radians per second, peaking at 20 rad/s"
+            className="h-full w-full object-contain"
           />
         </figure>
         <figcaption className="mt-3 label-mono">
-          Illustrative placeholder — not a figure from the study.
+          Figure from the study — resonance curve at 10 Ns/m damping.
         </figcaption>
+
       </section>
       <section className="container-page mt-20 grid gap-12 md:grid-cols-12">
         <div className="md:col-span-7">
@@ -49,9 +50,9 @@ function Research() {
           <div className="mt-14">
             <SectionLabel n="02">Findings</SectionLabel>
             <p className="mt-6 text-muted-foreground">
-              Results will be summarised here once the author publishes them. No results are claimed
-              on this page.
+              {research.findings} The full analysis and figures are in the published paper.
             </p>
+
           </div>
         </div>
         <aside className="space-y-8 md:col-span-4 md:col-start-9">
@@ -65,18 +66,28 @@ function Research() {
           </div>
           <div>
             <p className="label-mono">Paper</p>
-            {research.paperUrl ? (
+            <a
+              href={research.paperUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex items-center gap-1 link-underline"
+            >
+              Read paper <ArrowUpRight size={13} />
+            </a>
+            <p className="mt-3 text-sm text-muted-foreground">
+              {research.published} · {research.license}
+            </p>
+            <p className="text-sm text-muted-foreground">
               <a
-                href={research.paperUrl}
+                href={`https://doi.org/${research.doi}`}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3 inline-flex items-center gap-1 link-underline"
+                className="link-underline"
               >
-                Read paper <ArrowUpRight size={13} />
+                doi:{research.doi}
               </a>
-            ) : (
-              <p className="mt-3 text-muted-foreground">Not yet published online.</p>
-            )}
+            </p>
+
           </div>
           <Link
             to="/work/$slug"
@@ -87,6 +98,25 @@ function Research() {
           </Link>
         </aside>
       </section>
+      <section className="container-page mt-20 pb-24">
+        <SectionLabel n="03">Figures</SectionLabel>
+        <div className="mt-8 grid gap-8 md:grid-cols-3">
+          {research.figures.map((f) => (
+            <figure key={f.src}>
+              <div className="img-zoom aspect-[4/3] border border-hairline bg-paper">
+                <img
+                  src={f.src}
+                  alt={f.caption}
+                  loading="lazy"
+                  className="h-full w-full object-contain"
+                />
+              </div>
+              <figcaption className="mt-3 label-mono">{f.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
     </>
+
   );
 }
