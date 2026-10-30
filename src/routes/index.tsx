@@ -25,11 +25,9 @@ function Home() {
       {/* Hero */}
       <section className="container-page pt-14 md:pt-24">
         <div className="grid gap-8 md:grid-cols-12">
-          <p className="label-mono md:col-span-3">Portfolio · Draft v1</p>
+          <p className="label-mono md:col-span-3">{"\n"}</p>
           <h1 className="display text-[clamp(3.2rem,10vw,9.5rem)] md:col-span-9 animate-rise">
-            {site.name} builds,
-            <br />
-            studies & draws.
+            Building Code That Matters.
           </h1>
         </div>
         <div className="mt-12 grid gap-8 border-t border-hairline pt-6 md:grid-cols-12">
@@ -39,7 +37,7 @@ function Home() {
               to="/work"
               className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm text-primary-foreground transition-opacity hover:opacity-85"
             >
-              View work <ArrowRight size={14} />
+              View work<ArrowRight size={14} />
             </Link>
             <a
               href={site.github}
@@ -67,12 +65,11 @@ function Home() {
         <SectionLabel n="01">About</SectionLabel>
         <div className="mt-10 grid gap-8 md:grid-cols-12">
           <p className="display text-3xl md:col-span-8 md:text-5xl" style={{ lineHeight: 1.08 }}>
-            I learn by building — across web software, open-source collaboration, MATLAB simulation,
-            reverse engineering, and ink illustration.
+            {"I lean towards making impact and making code that matters.\nThat's why i look forward working open scource."}
           </p>
           <div className="md:col-span-3 md:col-start-10">
             <Link to="/about" className="inline-flex items-center gap-2 text-sm link-underline">
-              More about me <ArrowUpRight size={14} />
+              More about myself<ArrowUpRight size={14} />
             </Link>
           </div>
         </div>
@@ -107,7 +104,7 @@ function Home() {
               {research.title}
             </h2>
             <p className="mt-6 max-w-md opacity-70">
-              {research.kind}. {research.status}.
+              {research.kind}. {"Student research — \npublished on zenodo"}
             </p>
             <Link
               to="/research"
@@ -141,17 +138,16 @@ function Home() {
           </div>
           <div className="md:col-span-4 md:col-start-9 md:self-end">
             <StatusTag>Collaborative</StatusTag>
-            <h3 className="mt-4 text-3xl tracking-tight">Contributing to WIDSP</h3>
+            <h3 className="mt-4 text-3xl tracking-tight">WIDSP</h3>
             <p className="mt-4 text-muted-foreground">
-              Frontend contributions to a team-built infectious-disease surveillance platform —
-              filters, map UI and refinements. Shared work, credited as such.
+              {"Frontend contributions to a team-built infectious-disease surveillance platform —  which filters, map UI and refinements. Shared work, credited as such."}
             </p>
             <Link
               to="/work/$slug"
               params={{ slug: "widsp" }}
               className="mt-6 inline-flex items-center gap-2 text-sm link-underline"
             >
-              Case study <ArrowUpRight size={14} />
+              {" look"}<ArrowUpRight size={14} />
             </Link>
           </div>
         </div>

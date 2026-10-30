@@ -9,7 +9,7 @@ export const site = {
   name: "Siddhant",
   wordmark: "S /",
   tagline:
-    "Student developer exploring software, open source, computational research, and visual art.",
+    "Developer exploring software, open source, computational research, and visual art.",
   github: "https://github.com/siddhant3895",
   githubHandle: "siddhant3895",
   // Set to a real address to show it on the contact page. Leave null to hide.
@@ -200,7 +200,7 @@ export const research = {
   title:
     "When Tesla's Oscillator Meets Modern Science: A Computational Investigation into Mechanical Resonance",
   kind: "Computational research · MATLAB",
-  status: "Student research — not peer reviewed",
+  status: "Student research — \npublished on zenodo",
   abstract:
     "A computational look at mechanical resonance through the lens of Tesla's oscillator, using MATLAB simulations to model and explore resonant behaviour. Abstract and findings to be added by the author.",
   paperUrl: null as string | null,
@@ -210,9 +210,9 @@ export const research = {
 export const now = {
   updated: "October 2026",
   focus: [
-    "Documenting existing projects properly — verified contributions and links.",
-    "Finishing the write-up of the Tesla oscillator study.",
-    "Prototyping PulseAtlas.",
+    "Learning new languages, mastering to code to make a difference,",
+    "writing blogs through personal experience and knowledge.",
+    "working on my projects and the team.",
   ],
   learning: [
     "Systems and reverse engineering fundamentals",
