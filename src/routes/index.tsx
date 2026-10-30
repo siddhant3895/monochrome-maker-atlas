@@ -115,11 +115,12 @@ function Home() {
           </div>
           <div className="img-zoom aspect-square md:col-span-6 md:col-start-7">
             <img
-              src={images.oscillator}
-              alt="Mechanical spring detail (placeholder image)"
+              src={images.resonanceCurve}
+              alt="Resonance curve from the study: amplitude against driving frequency, peaking at 20 rad/s"
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
+
           </div>
         </div>
       </section>
@@ -130,11 +131,12 @@ function Home() {
         <div className="mt-10 grid gap-10 md:grid-cols-12">
           <div className="img-zoom aspect-[4/3] border border-hairline md:col-span-7">
             <img
-              src={images.map}
-              alt="Dotted world map (placeholder image)"
+              src={images.wispHome}
+              alt="The live WISP overview page: catalogue counts, latest official outbreak reports and navigation to the map"
               loading="lazy"
               className="h-full w-full object-cover"
             />
+
           </div>
           <div className="md:col-span-4 md:col-start-9 md:self-end">
             <StatusTag>Collaborative</StatusTag>
