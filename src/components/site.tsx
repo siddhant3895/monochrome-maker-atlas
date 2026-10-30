@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Home, Menu, X } from "lucide-react";
 import { nav, site, type Project } from "@/content/site";
 
 export function Header() {
