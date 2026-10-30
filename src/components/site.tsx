@@ -73,7 +73,7 @@ export function Footer() {
     <footer className="mt-32 border-t border-hairline">
       <div className="container-page grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-6">
-          <p className="display text-4xl md:text-6xl">Let's build something careful.</p>
+          <p className="display text-4xl md:text-6xl">Let's build something which makes an impact.</p>
           <Link
             to="/contact"
             className="mt-6 inline-flex items-center gap-2 text-sm link-underline"
@@ -103,9 +103,9 @@ export function Footer() {
       </div>
       <div className="container-page flex justify-between border-t border-hairline py-5 label-mono">
         <span>
-          {site.wordmark} {site.name}
+          {"\n"}
         </span>
-        <span>Draft portfolio · {new Date().getFullYear()}</span>
+        <span>{"\n"}</span>
       </div>
     </footer>
   );
