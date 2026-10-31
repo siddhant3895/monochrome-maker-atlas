@@ -1,4 +1,7 @@
 # Portfolio update
+- [ ] Remove Now and Research pages, homepage sections and navigation links.
+- [ ] Keep all existing projects; add Hall of Codes, socket-peek and Cadance with truthful public/private labels.
+- [ ] Simplify Work filters to All, Open source and Personal; verify filters, details and navigation.
 - [x] Remove Visual Lab and Writing and replace links with Blog.
 - [x] Add local Markdown content, searchable/category-filtered Blog, and article pages with draft states.
 - [x] Verify navigation, Markdown rendering, metadata, tests, lint, and preview checks.
