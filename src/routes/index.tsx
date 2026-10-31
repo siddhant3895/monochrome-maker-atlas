@@ -50,15 +50,59 @@ function Home() {
             </a>
           </div>
         </div>
-        <figure className="img-zoom mt-12 aspect-[16/9] border border-hairline bg-ink md:aspect-[21/9]">
-          <img
-            src={images.hero}
-            alt="Long-exposure pendulum light trails (placeholder image)"
-            width={1600}
-            height={1008}
-            className="h-full w-full object-cover"
-          />
-        </figure>
+        <section
+          aria-label="GitHub profile"
+          className="mt-12 border border-hairline bg-ink text-paper"
+        >
+          <div className="flex items-center justify-between border-b border-paper/15 px-5 py-3 md:px-8">
+            <p className="font-mono text-[0.68rem] uppercase tracking-wider text-paper/60">
+              github.com/siddhant3895
+            </p>
+            <a
+              href={site.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-wider text-paper/60 transition-colors hover:text-paper"
+            >
+              View profile <ArrowUpRight size={12} />
+            </a>
+          </div>
+          <div className="grid gap-8 px-5 py-8 md:grid-cols-12 md:px-8 md:py-10">
+            <div className="flex items-start gap-5 md:col-span-7">
+              <img
+                src="https://avatars.githubusercontent.com/u/229514112?v=4"
+                alt="GitHub avatar of siddhant3895"
+                width={96}
+                height={96}
+                className="h-20 w-20 shrink-0 rounded-full border border-paper/25 grayscale md:h-24 md:w-24"
+              />
+              <div className="min-w-0">
+                <p className="text-2xl tracking-tight md:text-3xl">siddhant3895</p>
+                <p className="mt-1 font-mono text-[0.68rem] uppercase tracking-wider text-paper/60">
+                  @hallofcodes
+                </p>
+                <p className="mt-4 max-w-md text-sm leading-relaxed text-paper/75">
+                  Student Developer &amp; Researcher | Specialize in Python &amp; MATLAB |
+                  Building open-source data analytics &amp; security projects
+                </p>
+              </div>
+            </div>
+            <dl className="grid grid-cols-3 gap-px self-end border border-paper/15 bg-paper/15 md:col-span-4 md:col-start-9">
+              {[
+                ["Repositories", "12"],
+                ["Followers", "283"],
+                ["Following", "237"],
+              ].map(([label, value]) => (
+                <div key={label} className="bg-ink px-4 py-4">
+                  <dt className="font-mono text-[0.62rem] uppercase tracking-wider text-paper/50">
+                    {label}
+                  </dt>
+                  <dd className="mt-1 text-2xl tracking-tight">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
       </section>
 
       {/* Bio */}
