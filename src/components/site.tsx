@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowUpRight, Home, Menu, X } from "lucide-react";
+import { ArrowUpRight, Home, LockKeyhole, Menu, X } from "lucide-react";
 import { nav, site, type Project } from "@/content/site";
 
 export function Header() {
@@ -78,7 +78,9 @@ export function Footer() {
     <footer className="mt-32 border-t border-hairline">
       <div className="container-page grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-6">
-          <p className="display text-4xl md:text-6xl">Let's build something which makes an impact.</p>
+          <p className="display text-4xl md:text-6xl">
+            Let's build something which makes an impact.
+          </p>
           <Link
             to="/contact"
             className="mt-6 inline-flex items-center gap-2 text-sm link-underline"
@@ -107,9 +109,7 @@ export function Footer() {
         </ul>
       </div>
       <div className="container-page flex justify-between border-t border-hairline py-5 label-mono">
-        <span>
-          {"\n"}
-        </span>
+        <span>{"\n"}</span>
         <span>{"\n"}</span>
       </div>
     </footer>
@@ -168,19 +168,31 @@ export function ProjectCard({
   return (
     <Link to="/work/$slug" params={{ slug: p.slug }} className="group block">
       <div className={`img-zoom ${aspect} border border-hairline bg-muted`}>
-        <img
-          src={p.image}
-          alt={p.imageAlt}
-          loading={priority ? "eager" : "lazy"}
-          className="h-full w-full object-cover"
-        />
+        {p.image ? (
+          <img
+            src={p.image}
+            alt={p.imageAlt}
+            loading={priority ? "eager" : "lazy"}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div className="flex h-full flex-col items-center justify-center gap-3 text-muted-foreground">
+            {p.visibility === "Private" && <LockKeyhole size={24} aria-hidden />}
+            <span className="label-mono">
+              {p.visibility === "Private"
+                ? "Private project · Ongoing"
+                : "Project image to be added"}
+            </span>
+          </div>
+        )}
       </div>
-      <div className="mt-4 flex items-start justify-between gap-4">
-        <div>
+      <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
+        <div className="min-w-0 flex-1 basis-40">
           <p className="label-mono">
-            {String(index + 1).padStart(2, "0")} · {p.year}
+            {String(index + 1).padStart(2, "0")}
+            {p.year ? ` · ${p.year}` : ""}
           </p>
-          <h3 className="mt-1 text-xl tracking-tight">{p.title}</h3>
+          <h3 className="mt-1 break-words text-xl tracking-tight">{p.title}</h3>
           <p className="mt-1 max-w-md text-sm text-muted-foreground">{p.summary}</p>
         </div>
         <div className="flex shrink-0 items-center gap-3">

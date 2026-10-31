@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, LockKeyhole } from "lucide-react";
 import { SectionLabel, StatusTag } from "@/components/site";
 import { projects } from "@/content/site";
 import { seo } from "@/lib/seo";
@@ -10,12 +10,27 @@ export const Route = createFileRoute("/work/$slug")({
     if (!project) throw notFound();
     return { project };
   },
-  head: ({ loaderData }) =>
-    loaderData
-      ? seo(loaderData.project.title, loaderData.project.summary)
-      : {
-          meta: [{ title: "Project not found — Siddhant" }, { name: "robots", content: "noindex" }],
-        },
+  head: ({ loaderData }) => {
+    if (!loaderData)
+      return {
+        meta: [
+          ...seo("Project unavailable", "This project is unavailable.").meta,
+          { name: "robots", content: "noindex" },
+        ],
+      };
+    const { project } = loaderData;
+    return {
+      meta: [
+        ...seo(project.title, project.summary).meta,
+        ...(project.image?.startsWith("https://")
+          ? [
+              { property: "og:image", content: project.image },
+              { name: "twitter:image", content: project.image },
+            ]
+          : []),
+      ],
+    };
+  },
   component: ProjectPage,
   notFoundComponent: () => (
     <div className="container-page py-32">
@@ -64,15 +79,24 @@ function ProjectPage() {
         </Link>
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <StatusTag>{p.status}</StatusTag>
+          {p.visibility && (
+            <span className="label-mono inline-flex items-center gap-2">
+              <LockKeyhole size={12} aria-hidden />
+              {p.visibility}
+            </span>
+          )}
           <span className="label-mono">
-            {p.year} · {p.categories.join(" / ")}
+            {p.year ? `${p.year} · ` : ""}
+            {p.categories.join(" / ")}
           </span>
         </div>
-        <h1 className="display mt-6 text-5xl md:text-8xl animate-rise">{p.title}</h1>
+        <h1 className="display mt-6 break-words text-5xl md:text-8xl animate-rise">{p.title}</h1>
         <p className="mt-6 max-w-2xl text-xl text-muted-foreground">{p.summary}</p>
-        <figure className="img-zoom mt-12 aspect-[16/9] border border-hairline bg-muted">
-          <img src={p.image} alt={p.imageAlt} className="h-full w-full object-cover" />
-        </figure>
+        {p.image && (
+          <figure className="img-zoom mt-12 aspect-[16/9] border border-hairline bg-muted">
+            <img src={p.image} alt={p.imageAlt} className="h-full w-full object-cover" />
+          </figure>
+        )}
       </section>
 
       <section className="container-page mt-16 grid gap-12 md:grid-cols-12">
@@ -109,7 +133,11 @@ function ProjectPage() {
                 ))}
               </ul>
             ) : (
-              <p className="mt-2 text-muted-foreground">Links to be added.</p>
+              <p className="mt-2 text-muted-foreground">
+                {p.visibility === "Private"
+                  ? "Private repository — no public link."
+                  : "Links to be added."}
+              </p>
             )}
           </div>
         </aside>

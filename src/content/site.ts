@@ -10,8 +10,7 @@ import { images } from "./images";
 export const site = {
   name: "",
   wordmark: "",
-  tagline:
-    "Developer exploring software, open source, computational research, and visual art.",
+  tagline: "Developer exploring software, open source, computational research, and visual art.",
   github: "https://github.com/siddhant3895",
   githubHandle: "siddhant3895",
   // Set to a real address to show it on the contact page. Leave null to hide.
@@ -20,15 +19,14 @@ export const site = {
 
 export const nav = [
   { to: "/work", label: "Work" },
-  { to: "/research", label: "Research" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
-  { to: "/now", label: "Now" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export type Status = "Collaborative" | "Research" | "Concept" | "In progress" | "Experiment";
-export type Category = "Open source" | "Research" | "Web" | "Security" | "AI" | "Games";
+export type Status =
+  "Collaborative" | "Research" | "Concept" | "In progress" | "Experiment" | "Ongoing";
+export type Category = "Open source" | "Personal";
 
 export type Project = {
   slug: string;
@@ -37,7 +35,8 @@ export type Project = {
   year: string;
   status: Status;
   categories: Category[];
-  image: string;
+  image?: string;
+  visibility?: "Private";
   imageAlt: string;
   role: string;
   overview: string;
@@ -60,7 +59,7 @@ export const projects: Project[] = [
       "Frontend contributions to a collaborative, open-source infectious-disease surveillance platform.",
     year: "2026",
     status: "Collaborative",
-    categories: ["Open source", "Web"],
+    categories: ["Open source"],
     image: images.wispMap,
     imageAlt:
       "Global outbreak map on the live WISP site, with disease and time-window filter controls (real screenshot)",
@@ -105,7 +104,7 @@ export const projects: Project[] = [
       "A MATLAB computational investigation into mechanical resonance, published as a preprint on Zenodo.",
     year: "2026",
     status: "Research",
-    categories: ["Research"],
+    categories: ["Personal"],
     image: images.resonanceCurve,
     imageAlt:
       "Resonance curve from the study: amplitude in metres against driving frequency in radians per second, peaking at 20 rad/s",
@@ -128,7 +127,10 @@ export const projects: Project[] = [
       "Preprint — not peer reviewed.",
       "Results depend on the assumed mass, damping and driving parameters.",
     ],
-    next: ["Add an author-written findings summary to the research page.", "Link the code archive directly."],
+    next: [
+      "Add an author-written findings summary to this case study.",
+      "Link the code archive directly.",
+    ],
     links: [
       { label: "Paper (Zenodo)", href: "https://zenodo.org/records/18348210" },
       { label: "DOI", href: "https://doi.org/10.5281/zenodo.18348210" },
@@ -145,15 +147,13 @@ export const projects: Project[] = [
       "A Python command-line tool that flags suspicious scripts through hashing, signature matching and keyword checks.",
     year: "2026",
     status: "In progress",
-    categories: ["Security"],
+    categories: ["Personal"],
     image: images.code,
     imageAlt: "Laptop with code on screen (generated placeholder — not a screenshot of PySentinel)",
     role: "Author.",
     overview:
       "A static triage scanner written in Python: it hashes files in chunks with SHA-256, matches them against signatures and checks scripts for suspicious keywords. Built to learn how signature-based detection actually works end to end.",
-    contribution: [
-      "Whole tool: the hashing pipeline, signature matching and keyword checks.",
-    ],
+    contribution: ["Whole tool: the hashing pipeline, signature matching and keyword checks."],
     stack: ["Python", "Standard library only (hashlib, os)"],
     decisions: [
       "Standard library only, so the scanner runs with no third-party dependencies installed.",
@@ -164,9 +164,7 @@ export const projects: Project[] = [
       "Intended for learning and authorised testing only.",
     ],
     next: ["Record a real terminal capture for this page.", "Document usage and add sample files."],
-    links: [
-      { label: "Repository", href: "https://github.com/siddhant3895/py-sentinel-scanner" },
-    ],
+    links: [{ label: "Repository", href: "https://github.com/siddhant3895/py-sentinel-scanner" }],
   },
   {
     slug: "chess-tactical-analytics",
@@ -175,7 +173,7 @@ export const projects: Project[] = [
       "A Python pipeline that reads PGN games and analyses bot match outcomes. Still unfinished.",
     year: "2026",
     status: "In progress",
-    categories: ["Games"],
+    categories: ["Personal"],
     image: images.chess,
     imageAlt:
       "Chess pieces in dramatic light (generated placeholder — not output from this project)",
@@ -193,7 +191,10 @@ export const projects: Project[] = [
       "Visualiser is unfinished: the plotting function returns no chart yet.",
       "No published demo or dataset.",
     ],
-    next: ["Finish the visualiser and add example output.", "Document which analyses are meaningful."],
+    next: [
+      "Finish the visualiser and add example output.",
+      "Document which analyses are meaningful.",
+    ],
     links: [
       {
         label: "Repository",
@@ -201,53 +202,78 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "hallofcodes",
+    title: "Hall of Codes",
+    summary: "Collaborative open-source contributions to the projects showcase and timeline.",
+    year: "2026",
+    status: "Collaborative",
+    categories: ["Open source"],
+    imageAlt: "",
+    role: "Open-source contributor, not the sole creator.",
+    overview:
+      "Contributed to the Hall of Codes community website. My merged pull request #47 redesigned the projects showcase and section UI; the wider website is collaborative work.",
+    contribution: [
+      "Replaced GitHub API calls with a static catalog of six curated non-fork repositories.",
+      "Added a responsive vertical timeline with cover banners and author credits.",
+      "Updated project data, the projects page and card/timeline components in merged PR #47.",
+    ],
+    stack: ["TypeScript", "Next.js", "React", "Tailwind CSS"],
+    decisions: ["Used a curated static project catalog instead of GitHub API calls."],
+    challenges: [TBA],
+    limitations: [
+      "Contribution covers the projects showcase, not authorship of the whole website.",
+    ],
+    next: [TBA],
+    links: [
+      { label: "Repository", href: "https://github.com/hallofcodes/hallofcodes" },
+      { label: "Projects showcase", href: "https://www.hallofcodes.org/projects" },
+      { label: "My pull request", href: "https://github.com/hallofcodes/hallofcodes/pull/47" },
+    ],
+  },
+  {
+    slug: "socket-peek",
+    title: "socket-peek",
+    summary: "An ongoing, private personal project for auditing the hosts contacted by a command.",
+    year: "",
+    status: "Ongoing",
+    visibility: "Private",
+    categories: ["Personal"],
+    imageAlt: "",
+    role: "Personal project.",
+    overview:
+      "A lightweight, cross-platform supply-chain network auditor. It runs a command behind a logging HTTP/HTTPS proxy and reports the hosts contacted. The repository is private; this description is based on my project notes.",
+    contribution: ["Personal project in ongoing development. Public source is not available."],
+    stack: ["Python 3.9+", "Rich"],
+    decisions: [
+      "No TLS interception: HTTPS connections use a blind tunnel without decrypting payloads or installing a certificate authority.",
+    ],
+    challenges: [TBA],
+    limitations: [
+      "Only observes HTTP/HTTPS traffic from commands that honour proxy settings.",
+      "Reports hosts, not HTTPS URLs or payloads.",
+      "A known host is not proof of package integrity.",
+    ],
+    next: [TBA],
+    links: [],
+  },
+  {
+    slug: "cadance",
+    title: "Cadance",
+    summary: "An ongoing personal project. The repository is currently private.",
+    year: "",
+    status: "Ongoing",
+    visibility: "Private",
+    categories: ["Personal"],
+    imageAlt: "",
+    role: "Personal project.",
+    overview: "An ongoing private personal project. Further details will be shared when ready.",
+    contribution: [TBA],
+    stack: [TBA],
+    decisions: [TBA],
+    challenges: [TBA],
+    limitations: ["The repository and project details are not public yet."],
+    next: [TBA],
+    links: [],
+  },
 ];
-
-export const research = {
-  title:
-    "When Tesla's Oscillator Meets Modern Science: A Computational Investigation into Mechanical Resonance",
-  kind: "Computational research · MATLAB",
-  status: "Student research — \npublished on zenodo",
-  abstract:
-    "This study investigates the scientific validity of Nikola Tesla’s mechanical oscillator — often referred to as the “earthquake machine” — through a computational model of forced mechanical resonance. The hypothesis tested is that, under realistic physical parameters, the resonance amplitudes produced by the oscillator would be significantly lower than the destructive levels described in historical accounts. MATLAB-based simulations of a forced damped harmonic system were used to evaluate how mass, damping, and driving frequency influence vibrational amplitude. Results show that while resonance can amplify motion significantly, structural damping and limited input power prevent destructive amplitudes. This paper combines historical research with quantitative computational analysis to provide a balanced perspective on one of Tesla’s most intriguing inventions.",
-  findings:
-    "Resonance does amplify motion substantially, but structural damping and limited input power keep the modelled amplitudes below the destructive levels described in historical accounts.",
-  paperUrl: "https://zenodo.org/records/18348210",
-  doi: "10.5281/zenodo.18348210",
-  published: "23 January 2026",
-  license: "CC BY 4.0",
-  methods: [
-    "MATLAB simulation of a forced damped harmonic system",
-    "Literature review",
-    "Mechanical resonance modelling",
-  ],
-  figures: [
-    {
-      src: images.dampingCurve,
-      caption: "Damping comparison — amplitude response at different damping levels.",
-    },
-    {
-      src: images.energyVsTime,
-      caption: "Energy against time for the modelled oscillator.",
-    },
-    {
-      src: images.timeDomain,
-      caption: "Time-domain response of the driven system at resonance.",
-    },
-  ],
-};
-
-export const now = {
-  updated: "October 2026",
-  focus: [
-    "Learning new languages, mastering to code to make a difference,",
-    "writing blogs through personal experience and knowledge.",
-    "working on my projects and the team.",
-  ],
-  learning: [
-    "Systems and reverse engineering fundamentals",
-    "Numerical methods",
-    "Type-safe frontend architecture",
-  ],
-  making: ["Ink creature illustrations", "Manga-inspired studies"],
-};
