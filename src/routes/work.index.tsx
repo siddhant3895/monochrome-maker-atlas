@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Search } from "lucide-react";
 import { PageHeader, ProjectCard } from "@/components/site";
-import { projects, type Category } from "@/content/site";
+import { projects } from "@/content/site";
+import { Button } from "@/components/ui/button";
+import { filterProjects, workCategories, type WorkCategory } from "@/lib/projects";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/work/")({
@@ -11,25 +13,10 @@ export const Route = createFileRoute("/work/")({
   component: Work,
 });
 
-// Only offer categories that at least one project actually uses.
-const order: Category[] = ["Open source", "Research", "Web", "Security", "AI", "Games"];
-const cats: ("All" | Category)[] = [
-  "All",
-  ...order.filter((c) => projects.some((p) => p.categories.includes(c))),
-];
-
-
 function Work() {
   const [q, setQ] = useState("");
-  const [cat, setCat] = useState<(typeof cats)[number]>("All");
-  const list = useMemo(() => {
-    const s = q.trim().toLowerCase();
-    return projects.filter(
-      (p) =>
-        (cat === "All" || p.categories.includes(cat)) &&
-        (!s || [p.title, p.summary, p.status, ...p.stack].join(" ").toLowerCase().includes(s)),
-    );
-  }, [q, cat]);
+  const [cat, setCat] = useState<WorkCategory>("All");
+  const list = filterProjects(projects, q, cat);
 
   return (
     <>
@@ -43,15 +30,17 @@ function Work() {
       <section className="container-page mt-14">
         <div className="flex flex-col gap-4 border-y border-hairline py-4 md:flex-row md:items-center md:justify-between">
           <div role="group" aria-label="Filter by category" className="flex flex-wrap gap-2">
-            {cats.map((c) => (
-              <button
+            {workCategories.map((c) => (
+              <Button
                 key={c}
+                variant="outline"
+                size="sm"
                 aria-pressed={cat === c}
                 onClick={() => setCat(c)}
                 className={`rounded-full border px-3 py-1 text-sm transition-colors ${cat === c ? "border-foreground bg-foreground text-background" : "border-hairline hover:border-foreground"}`}
               >
                 {c}
-              </button>
+              </Button>
             ))}
           </div>
           <label className="relative block md:w-72">
@@ -76,15 +65,16 @@ function Work() {
         {list.length === 0 ? (
           <div className="mt-10 border border-dashed border-hairline p-16 text-center text-muted-foreground">
             No projects match.{" "}
-            <button
-              className="underline"
+            <Button
+              variant="link"
+              className="px-0"
               onClick={() => {
                 setQ("");
                 setCat("All");
               }}
             >
               Clear filters
-            </button>
+            </Button>
           </div>
         ) : (
           <div className="mt-8 grid gap-x-8 gap-y-14 md:grid-cols-2">

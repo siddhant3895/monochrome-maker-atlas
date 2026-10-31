@@ -10,6 +10,8 @@
 <!-- LOVABLE:END -->
 
 ## Content architecture
+- Work project data is centralized in typed content; shared filtering uses a browser-safe module so categories and search behave consistently in tests and the UI.
+- Project imagery is optional; unavailable/private projects use honest text states rather than fabricated screenshots or repository links.
 - Blog posts live in `src/content/posts/*.md` with validated YAML frontmatter and are bundled by Vite, so publishing requires only a content file and no database or filesystem at runtime.
 - Shared blog parsing/filtering lives in browser-safe modules; route loaders resolve local posts and throw `notFound()` for unknown slugs, so direct article URLs work during SSR.
 - Render article bodies through React Markdown with raw HTML disabled, GFM and stable heading IDs, so rich content stays readable without executing embedded HTML.
