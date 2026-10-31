@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { ProjectCard, SectionLabel, StatusTag } from "@/components/site";
-import { now, projects, research, site } from "@/content/site";
+import { projects, site } from "@/content/site";
 import { posts } from "@/content/blog";
 import { ArticleEntry } from "@/components/blog";
 import { images } from "@/content/images";
@@ -95,39 +95,9 @@ function Home() {
         </Link>
       </section>
 
-      {/* Research */}
-      <section className="mt-28 bg-ink text-paper">
-        <div className="container-page grid gap-10 py-20 md:grid-cols-12 md:py-28">
-          <div className="md:col-span-5">
-            <p className="font-mono text-xs uppercase tracking-wider opacity-60">03 · Research</p>
-            <h2 className="display mt-8 text-3xl md:text-5xl" style={{ lineHeight: 1.05 }}>
-              {research.title}
-            </h2>
-            <p className="mt-6 max-w-md opacity-70">
-              {research.kind}. {"Student research — \npublished on zenodo"}
-            </p>
-            <Link
-              to="/research"
-              className="mt-8 inline-flex items-center gap-2 text-sm link-underline"
-            >
-              Read about the study <ArrowUpRight size={14} />
-            </Link>
-          </div>
-          <div className="img-zoom aspect-square md:col-span-6 md:col-start-7">
-            <img
-              src={images.resonanceCurve}
-              alt="Resonance curve from the study: amplitude against driving frequency, peaking at 20 rad/s"
-              loading="lazy"
-              className="h-full w-full object-contain"
-            />
-
-          </div>
-        </div>
-      </section>
-
       {/* Open source */}
       <section className="container-page mt-28">
-        <SectionLabel n="04">Open source</SectionLabel>
+        <SectionLabel n="03">Open source</SectionLabel>
         <div className="mt-10 grid gap-10 md:grid-cols-12">
           <div className="img-zoom aspect-[4/3] border border-hairline md:col-span-7">
             <img
@@ -158,7 +128,7 @@ function Home() {
       {/* Blog */}
       <section className="container-page mt-28">
         <div className="flex items-center justify-between">
-          <SectionLabel n="05">Blog</SectionLabel>
+          <SectionLabel n="04">Blog</SectionLabel>
           <Link to="/blog" className="inline-flex items-center gap-2 text-sm link-underline">
             All articles <ArrowUpRight size={14} />
           </Link>
@@ -170,23 +140,6 @@ function Home() {
         </ul>
       </section>
 
-      {/* Now */}
-      <section className="container-page mt-28">
-        <SectionLabel n="06">Current focus</SectionLabel>
-        <ol className="mt-10 divide-y divide-hairline border-b border-hairline">
-          {now.focus.map((f, i) => (
-            <li key={f} className="grid grid-cols-12 gap-4 py-5">
-              <span className="col-span-2 label-mono md:col-span-1">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="col-span-10 text-lg md:col-span-11">{f}</span>
-            </li>
-          ))}
-        </ol>
-        <Link to="/now" className="mt-6 inline-flex items-center gap-2 text-sm link-underline">
-          What I'm doing now <ArrowUpRight size={14} />
-        </Link>
-      </section>
     </>
   );
 }
