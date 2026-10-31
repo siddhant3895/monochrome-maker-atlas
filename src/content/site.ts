@@ -10,8 +10,7 @@ import { images } from "./images";
 export const site = {
   name: "",
   wordmark: "",
-  tagline:
-    "Developer exploring software, open source, computational research, and visual art.",
+  tagline: "Developer exploring software, open source, computational research, and visual art.",
   github: "https://github.com/siddhant3895",
   githubHandle: "siddhant3895",
   // Set to a real address to show it on the contact page. Leave null to hide.
@@ -25,7 +24,8 @@ export const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export type Status = "Collaborative" | "Research" | "Concept" | "In progress" | "Experiment" | "Ongoing";
+export type Status =
+  "Collaborative" | "Research" | "Concept" | "In progress" | "Experiment" | "Ongoing";
 export type Category = "Open source" | "Personal";
 
 export type Project = {
@@ -127,7 +127,10 @@ export const projects: Project[] = [
       "Preprint — not peer reviewed.",
       "Results depend on the assumed mass, damping and driving parameters.",
     ],
-    next: ["Add an author-written findings summary to this case study.", "Link the code archive directly."],
+    next: [
+      "Add an author-written findings summary to this case study.",
+      "Link the code archive directly.",
+    ],
     links: [
       { label: "Paper (Zenodo)", href: "https://zenodo.org/records/18348210" },
       { label: "DOI", href: "https://doi.org/10.5281/zenodo.18348210" },
@@ -150,9 +153,7 @@ export const projects: Project[] = [
     role: "Author.",
     overview:
       "A static triage scanner written in Python: it hashes files in chunks with SHA-256, matches them against signatures and checks scripts for suspicious keywords. Built to learn how signature-based detection actually works end to end.",
-    contribution: [
-      "Whole tool: the hashing pipeline, signature matching and keyword checks.",
-    ],
+    contribution: ["Whole tool: the hashing pipeline, signature matching and keyword checks."],
     stack: ["Python", "Standard library only (hashlib, os)"],
     decisions: [
       "Standard library only, so the scanner runs with no third-party dependencies installed.",
@@ -163,9 +164,7 @@ export const projects: Project[] = [
       "Intended for learning and authorised testing only.",
     ],
     next: ["Record a real terminal capture for this page.", "Document usage and add sample files."],
-    links: [
-      { label: "Repository", href: "https://github.com/siddhant3895/py-sentinel-scanner" },
-    ],
+    links: [{ label: "Repository", href: "https://github.com/siddhant3895/py-sentinel-scanner" }],
   },
   {
     slug: "chess-tactical-analytics",
@@ -192,7 +191,10 @@ export const projects: Project[] = [
       "Visualiser is unfinished: the plotting function returns no chart yet.",
       "No published demo or dataset.",
     ],
-    next: ["Finish the visualiser and add example output.", "Document which analyses are meaningful."],
+    next: [
+      "Finish the visualiser and add example output.",
+      "Document which analyses are meaningful.",
+    ],
     links: [
       {
         label: "Repository",
@@ -209,12 +211,19 @@ export const projects: Project[] = [
     categories: ["Open source"],
     imageAlt: "",
     role: "Open-source contributor, not the sole creator.",
-    overview: "Contributed to the Hall of Codes community website. My merged pull request #47 redesigned the projects showcase and section UI; the wider website is collaborative work.",
-    contribution: ["Replaced GitHub API calls with a static catalog of six curated non-fork repositories.", "Added a responsive vertical timeline with cover banners and author credits.", "Updated project data, the projects page and card/timeline components in merged PR #47."],
+    overview:
+      "Contributed to the Hall of Codes community website. My merged pull request #47 redesigned the projects showcase and section UI; the wider website is collaborative work.",
+    contribution: [
+      "Replaced GitHub API calls with a static catalog of six curated non-fork repositories.",
+      "Added a responsive vertical timeline with cover banners and author credits.",
+      "Updated project data, the projects page and card/timeline components in merged PR #47.",
+    ],
     stack: ["TypeScript", "Next.js", "React", "Tailwind CSS"],
     decisions: ["Used a curated static project catalog instead of GitHub API calls."],
     challenges: [TBA],
-    limitations: ["Contribution covers the projects showcase, not authorship of the whole website."],
+    limitations: [
+      "Contribution covers the projects showcase, not authorship of the whole website.",
+    ],
     next: [TBA],
     links: [
       { label: "Repository", href: "https://github.com/hallofcodes/hallofcodes" },
@@ -232,12 +241,19 @@ export const projects: Project[] = [
     categories: ["Personal"],
     imageAlt: "",
     role: "Personal project.",
-    overview: "A lightweight, cross-platform supply-chain network auditor. It runs a command behind a logging HTTP/HTTPS proxy and reports the hosts contacted. The repository is private; this description is based on my project notes.",
+    overview:
+      "A lightweight, cross-platform supply-chain network auditor. It runs a command behind a logging HTTP/HTTPS proxy and reports the hosts contacted. The repository is private; this description is based on my project notes.",
     contribution: ["Personal project in ongoing development. Public source is not available."],
     stack: ["Python 3.9+", "Rich"],
-    decisions: ["No TLS interception: HTTPS connections use a blind tunnel without decrypting payloads or installing a certificate authority."],
+    decisions: [
+      "No TLS interception: HTTPS connections use a blind tunnel without decrypting payloads or installing a certificate authority.",
+    ],
     challenges: [TBA],
-    limitations: ["Only observes HTTP/HTTPS traffic from commands that honour proxy settings.", "Reports hosts, not HTTPS URLs or payloads.", "A known host is not proof of package integrity."],
+    limitations: [
+      "Only observes HTTP/HTTPS traffic from commands that honour proxy settings.",
+      "Reports hosts, not HTTPS URLs or payloads.",
+      "A known host is not proof of package integrity.",
+    ],
     next: [TBA],
     links: [],
   },

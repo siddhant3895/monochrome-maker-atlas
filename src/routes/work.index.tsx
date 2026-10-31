@@ -8,8 +8,7 @@ import { filterProjects, workCategories, type WorkCategory } from "@/lib/project
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/work/")({
-  head: () =>
-    seo("Work", "Projects across open source, research, security and games."),
+  head: () => seo("Work", "Projects across open source, research, security and games."),
   component: Work,
 });
 
@@ -25,7 +24,6 @@ function Work() {
         label="Work"
         title="Projects & experiments."
         intro="Status labels are honest: collaborative, research or in progress."
-
       />
       <section className="container-page mt-14">
         <div className="flex flex-col gap-4 border-y border-hairline py-4 md:flex-row md:items-center md:justify-between">

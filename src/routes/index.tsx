@@ -37,7 +37,8 @@ function Home() {
               to="/work"
               className="inline-flex h-10 items-center gap-2 rounded-md bg-primary px-4 text-sm text-primary-foreground transition-opacity hover:opacity-85"
             >
-              View work<ArrowRight size={14} />
+              View work
+              <ArrowRight size={14} />
             </Link>
             <a
               href={site.github}
@@ -65,11 +66,14 @@ function Home() {
         <SectionLabel n="01">About</SectionLabel>
         <div className="mt-10 grid gap-8 md:grid-cols-12">
           <p className="display text-3xl md:col-span-8 md:text-5xl" style={{ lineHeight: 1.08 }}>
-            {"I lean towards making impact and making code that matters.\nThat's why i look forward working open scource."}
+            {
+              "I lean towards making impact and making code that matters.\nThat's why i look forward working open scource."
+            }
           </p>
           <div className="md:col-span-3 md:col-start-10">
             <Link to="/about" className="inline-flex items-center gap-2 text-sm link-underline">
-              More about myself<ArrowUpRight size={14} />
+              More about myself
+              <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>
@@ -106,20 +110,22 @@ function Home() {
               loading="lazy"
               className="h-full w-full object-cover"
             />
-
           </div>
           <div className="md:col-span-4 md:col-start-9 md:self-end">
             <StatusTag>Collaborative</StatusTag>
             <h3 className="mt-4 text-3xl tracking-tight">WIDSP</h3>
             <p className="mt-4 text-muted-foreground">
-              {"Frontend contributions to a team-built infectious-disease surveillance platform —  which filters, map UI and refinements. Shared work, credited as such."}
+              {
+                "Frontend contributions to a team-built infectious-disease surveillance platform —  which filters, map UI and refinements. Shared work, credited as such."
+              }
             </p>
             <Link
               to="/work/$slug"
               params={{ slug: "widsp" }}
               className="mt-6 inline-flex items-center gap-2 text-sm link-underline"
             >
-              {" look"}<ArrowUpRight size={14} />
+              {" look"}
+              <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>
@@ -139,7 +145,6 @@ function Home() {
           ))}
         </ul>
       </section>
-
     </>
   );
 }
