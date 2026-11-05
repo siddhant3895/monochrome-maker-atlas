@@ -14,7 +14,7 @@ export const site = {
   github: "https://github.com/siddhant3895",
   githubHandle: "siddhant3895",
   // Set to a real address to show it on the contact page. Leave null to hide.
-  email: null as string | null,
+  email: "siddhant3895@gmail.com" as string | null,
 };
 
 export const nav = [
