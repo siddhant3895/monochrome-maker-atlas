@@ -27,7 +27,7 @@ function Home() {
         <div className="grid gap-8 md:grid-cols-12">
           <p className="label-mono md:col-span-3">{"\n"}</p>
           <h1 className="display text-[clamp(3.2rem,10vw,9.5rem)] md:col-span-9 animate-rise">
-            Building Code That Matters.
+            Building Code That Helps.
           </h1>
         </div>
         <div className="mt-12 grid gap-8 border-t border-hairline pt-6 md:grid-cols-12">
@@ -58,7 +58,7 @@ function Home() {
         <div className="mt-10 grid gap-8 md:grid-cols-12">
           <p className="display text-3xl md:col-span-8 md:text-5xl" style={{ lineHeight: 1.08 }}>
             {
-              "I lean towards making impact and making code that matters.\nThat's why i look forward working open scource."
+              "I deploy practical & scalable software and partner with\u00a0\nco-enthusiast developers."
             }
           </p>
           <div className="md:col-span-3 md:col-start-10">

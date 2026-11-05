@@ -10,7 +10,7 @@ import { images } from "./images";
 export const site = {
   name: "",
   wordmark: "",
-  tagline: "Developer exploring software, open source, computational research, and visual art.",
+  tagline: "\n",
   github: "https://github.com/siddhant3895",
   githubHandle: "siddhant3895",
   // Set to a real address to show it on the contact page. Leave null to hide.
