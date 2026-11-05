@@ -79,7 +79,7 @@ export function Footer() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-12">
         <div className="md:col-span-6">
           <p className="display text-4xl md:text-6xl">
-            Collaborate to code something useful.
+            Collaborate to code.
           </p>
           <Link
             to="/contact"
