@@ -16,7 +16,7 @@ function Contact() {
         n="—"
         label="Contact"
         title="Say hello."
-        intro="The best place to reach me right now is GitHub."
+        intro="This is where you will find me most of the time."
       />
       <section className="container-page mt-14 border-t border-hairline">
         <a
