@@ -29,8 +29,8 @@ function About() {
       <PageHeader
         n="—"
         label="About"
-        title="Curious, precise, self-taught in progress."
-        intro="I'm a student developer who learns mostly independently — by building, reading source code, and drawing."
+        title="About Myself."
+        intro="I am a full-stack software engineer who helps turn ideas into practical software which can be relied on."
       />
       <section className="container-page mt-16 grid gap-12 md:grid-cols-12">
         <div className="img-zoom aspect-[4/5] border border-hairline md:col-span-5">
