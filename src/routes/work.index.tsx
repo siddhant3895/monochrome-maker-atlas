@@ -22,8 +22,8 @@ function Work() {
       <PageHeader
         n="—"
         label="Work"
-        title="Projects & experiments."
-        intro="Status labels are honest: collaborative, research or in progress."
+        title="Work & Projects"
+        intro="My current work. Still ongiong"
       />
       <section className="container-page mt-14">
         <div className="flex flex-col gap-4 border-y border-hairline py-4 md:flex-row md:items-center md:justify-between">
